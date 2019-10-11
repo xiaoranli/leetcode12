@@ -16,3 +16,33 @@ leetcode12. 整数转罗马数字
 代码： 
 --
 <pre>
+/**
+ * @author lihe
+ * @date 2019/10/11 21:19
+ * @descriptor  12. 整数转罗马数字
+ */
+public class IntToRoman_12 {
+
+    public static String intToRoman(int num) {
+        String[] strings = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+        int [] numbers = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+
+        StringBuilder builder = new StringBuilder();
+        int index = 0;
+        while(index<13){
+            while(num >= numbers[index]){
+                builder.append(strings[index]);
+                num -= numbers[index];
+            }
+            index ++;
+        }
+        return builder.toString();
+    }
+
+    public static void main(String[] args) {
+        int sum = 1994;
+        String s = intToRoman(sum);
+        System.out.println(s);
+    }
+}
+</pre>
